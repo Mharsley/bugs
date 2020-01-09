@@ -1,0 +1,51 @@
+h1{
+  color: #f9f9f9;
+}
+  
+  #nav {
+    width: 100vw;
+    border: 1px solid gray;
+    background-color: #4267B2;
+    height: 100px;
+    text-align: center;
+  }
+  
+  #nav li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+  
+  #nav a {
+
+    color: white;
+    padding: 2vw;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #navbar a:hover {
+    text-decoration: none;
+    color: red;
+    font-family: monospace;
+  }
+  
+  .tickets ul {
+      margin: 0;
+      padding: 0;
+  }
+  
+  .tickets li{
+      list-style-type: none;
+      margin: 0 2vw;
+      font-size: 3vh;
+  }
+  
+  body {
+      margin: 0;
+  }

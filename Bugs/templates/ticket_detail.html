@@ -1,0 +1,10 @@
+<a href="/home/">HOME</a>
+
+{% for items in ticket %}
+    <h1>{{items.Title}} by <a href="/user/{{items.name.id}}/" >{{items.name}}</a></h1>
+    <br><br>
+    <p>{{items.Description}}</p>
+    <br>
+    <p><em>Created on: {{ items.Time }}</em></p>
+    <li><p><a href="/edit/{{items.id}}">EDIT</a></p></li>
+{% endfor %}

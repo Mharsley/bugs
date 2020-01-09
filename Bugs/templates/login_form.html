@@ -1,0 +1,17 @@
+<body>
+<div style="display:flex; justify-content: center">
+<h2 style="border-bottom: 2px solid black; width: 300px"> 
+<center>
+Login to Gain Access!
+</center>
+</h2>
+</div>
+<div style="display: flex; justify-content: center; border: 1px solid black; padding-left: -50px">
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+</div>
+</body> 
