@@ -113,20 +113,6 @@ def edit_ticket_view(request, id):
         form = NewTicket(request.POST, instance=ticket)
         form.save()
 
-        # if ticket.Status == "DONE":
-        #     ticket.completed = ticket.assigned
-        #     ticket.assigned = None
-        #     form.save()
-        # elif ticket.Status == "In_progress" and ticket.assigned is None:
-        #     ticket.assigned = ticket.created_by
-        # elif ticket.Status == "VALID":
-        #     ticket.completed = None
-        #     ticket.assigned = None
-        #     form.save()
-        # elif ticket.assigned is not None:
-        #     ticket.Status = "In_progress"
-        #     form.save()
-
         return HttpResponseRedirect(reverse('homepage'))
 
     form = NewTicket(instance=ticket)
