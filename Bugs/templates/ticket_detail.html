@@ -1,10 +1,28 @@
-<a href="/home/">HOME</a>
+<a href="/">HOME</a>
 
-{% for items in ticket %}
-    <h1>{{items.Title}} by <a href="/user/{{items.name.id}}/" >{{items.name}}</a></h1>
-    <br><br>
-    <p>{{items.Description}}</p>
-    <br>
-    <p><em>Created on: {{ items.Time }}</em></p>
-    <li><p><a href="/edit/{{items.id}}">EDIT</a></p></li>
-{% endfor %}
+
+<h1>{{ticket.Title}} by <a href="/user/{{items.name.id}}/" >{{items.name}}</a></h1>
+<br><br>
+<p>{{ticket.Description}}</p>
+<br>
+<p><em>Created on: {{ ticket.Time }}</em></p>
+<p><em>Created by: {{ ticket.Name }}</em></p>
+<p><a href="/edit/{{ticket.id}}">EDIT</a></p>
+
+
+{% if ticket.Status == "New" %}
+    <p><a href="/assign/{{ticket.id}}">Assign to me</a></p>
+    <p><a href="/invalid/{{ticket.id}}">Invalid</a></p>
+{% elif ticket.Status == "In_progress" %}
+    <p><em>Assigned to: {{ ticket.assigned }}</em></p>
+    {% if ticket.assigned == user %}
+    <p><a href="/complete/{{ticket.id}}">Complete</a></p>
+    {% endif %}
+    <p><a href="/invalid/{{ticket.id}}">Invalid</a></p>
+{% elif ticket.Status == "DONE" %}
+    <p><em>Completed by: {{ ticket.completed }}</em></p>
+    <p><a href="/invalid/{{ticket.id}}">Invalid</a></p>
+{% else %}
+<p><em> Ticket Status: {{ ticket.Status }}</em></p>
+{% endif %}
+

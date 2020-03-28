@@ -20,18 +20,24 @@ from django.conf.urls.static import static
 from Bugs import views
 from Bugs.models import Ticket
 
-# admin.site.register(Ticket)
+admin.site.register(Ticket)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login_view, name='login'),
-    path('home/', views.index, name='homepage'),
+    path('', views.index, name='homepage'),
+    path('login/', views.login_view, name='login'),
     path('user/<int:id>/', views.user_view, name='user'),
     path('addticket/', views.add_ticket_view, name="addticket"),
     path('ticket/<int:id>/', views.ticket_detail_view, name='ticket'),
     path('edit/<int:id>/', views.edit_ticket_view, name='edit'),
-    path('logout/', views.logout_view, name='logout')
+    path('logout/', views.logout_view, name='logout'),
+    path('assign/<int:id>/', views.assign_ticket, name="assign"),
+    path('complete/<int:id>/', views.complete_ticket, name='complete'),
+    path('invalid/<int:id>/', views.invalid_view, name='invalid')
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(
+        settings.STATIC_URL,
+        document_root=settings.STATIC_ROOT
+        )
